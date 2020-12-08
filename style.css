@@ -1,0 +1,12 @@
+*{
+    overflow:hidden;
+}
+body {
+    margin:0;
+    background: black;
+}
+#threejsbrain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

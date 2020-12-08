@@ -73,10 +73,13 @@ function init() {
 
     document.getElementById("threejsbrain").addEventListener('mousemove', onDocumentMouseMove, false );
     document.getElementById("threejsbrain").addEventListener('ontouchmove', onDocumentMouseMove, false );
-
+    document.addEventListener('click', sayBrain, false);
     // window.addEventListener( 'resize', onWindowResize, false );
 }
-
+function sayBrain(){
+    let utterance = new SpeechSynthesisUtterance("BRAIN");
+    speechSynthesis.speak(utterance);
+}
 function onWindowResize() {
     windowHalfX = window.innerWidth / 2;
     windowHalfY = window.innerHeight / 2;
@@ -116,7 +119,7 @@ function render() {
     directionalLight.position.z = -r * Math.cos( mouseX * s ) * Math.cos(mouseY/2 * s);
     directionalLight.position.y = r * Math.sin(mouseY/2 * s);
 
-    if(brainLoaded)brain.rotation.y += 0.01;
+    if(brainLoaded)brain.rotation.y += 0.006;
     
     camera.lookAt( scene.position );
 
